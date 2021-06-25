@@ -1,0 +1,29 @@
+<head>
+    <title>Edit Todo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+</head>
+
+
+<body>
+    <div class="container">
+        <h1>Edit Todo</h1> <a href="/dashboard">Back</a>
+        <form action="/EditTodo" method="post">
+            Title: <input type="text" name="Title" value='{{CurrToDo[0]["title"]}}'><br>
+            Description: <br> <textarea name="Description" id="" cols="30" rows="8" >{{CurrToDo[0]["description"]}}</textarea><br>
+            <input type="hidden" name="TodoId" value='{{CurrToDo[0]["toDosId"]}}'>
+            <input type="submit" value="Edit ToDo" class="btn btn-success">
+        </form><br><br><br><br>
+    </div>
+</body>
+
+
+<style>
+    .container{
+        width: 960px;
+    }
+
+    h1{
+        display: inline-block;
+        margin-right: 400px;
+    }
+</style>

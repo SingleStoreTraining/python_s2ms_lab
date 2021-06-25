@@ -1,0 +1,63 @@
+<head>
+    <title>SingleStore Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="dash">
+            <h1>SingleSpace Dashboard</h1> <a href="/logout">Log Out</a>
+            <h3>Welcome, {{CurrUser[0]["username"]}}</h3>
+            <br><br>
+            
+            <div class="post">
+                <h3>Let's Create some ToDos!</h3>
+                <form action="/addToDo" method="post" autocomplete="off">
+                    Title: <input type="text" name="Title"><br>
+                    Description: <br> <textarea name="Description" id="" cols="30" rows="8"></textarea><br>
+                    <input type="submit" value="Add ToDo" class="btn btn-success">
+                </form><br><br><br><br>
+            </div>
+
+            <div class="all">
+                {% for todo in AllToDos %}
+                    <p><b>Title:</b> {{ todo['title'] }}</p>
+                    <p><b>Description:</b> {{ todo['description'] }}</p>
+                    <a href='edit/{{todo["toDosId"]}}'>Edit</a> <span> - </span> <a href='delete/{{todo["toDosId"]}}'>Delete</a>
+                    <hr>
+                    {% endfor %}
+            </div>
+        
+        
+        </div>
+    </div>
+</body>
+    
+    <style>
+    .container{
+        width: 960px;
+    }
+    .dash{
+      width: 960px;
+      padding: 10px;
+    }
+    
+    .dash h1{
+      display: inline-block;
+      margin-right: 400px;
+    }
+    
+    .post{
+      display: inline-block;
+      margin: 0px 60px;
+    }
+    
+    .all{
+      display: inline-block;
+      vertical-align: top;
+      margin: 0px 60px;
+      width: 300px;
+    }
+    
+    </style>
